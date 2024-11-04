@@ -1,0 +1,13 @@
+module binary_gray_converters(
+	input [3:0] data_in,
+	output [3:0] data_out,
+	input sel
+);
+	wire [3:0] data1,data2;
+	
+	binary_to_gray one(.binary_data(data_in),.gray_data(data1));
+	gray_to_binary two(.gray_data(data_in),.binary_data(data2));
+
+	data_out = (sel) ? data1 : data2;
+
+endmodule
